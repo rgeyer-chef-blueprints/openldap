@@ -13,6 +13,10 @@ cookbook "sys_dns", path: "#{rightscale_cookbooks_path}/sys_dns"
 cookbook "sys_firewall", path: "#{rightscale_cookbooks_path}/sys_firewall"
 cookbook "sys_ntp", path: "#{rightscale_cookbooks_path}/sys_ntp"
 
+group :vagrant_only do
+  cookbook "rs_vagrant_shim", path: "~/Code/Chef/me/rgeyer-rs-cookbooks/rs_vagrant_shim" #git: "https://github.com/rgeyer-rs-cookbooks/rs_vagrant_shim.git"
+end
+
 #cookbook "app", path: "#{rightscale_cookbooks_path}/app"
 #cookbook "app_django", path: "#{rightscale_cookbooks_path}/app_django"
 #cookbook "app_passenger", path: "#{rightscale_cookbooks_path}/app_passenger"
