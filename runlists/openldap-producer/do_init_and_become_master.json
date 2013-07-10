@@ -1,0 +1,11 @@
+{
+  "run_list": [
+    "recipe[rs_vagrant_shim]",
+    "recipe[block_device::default]",
+    "recipe[sys_firewall::default]",
+    "recipe[sys_dns::default]",
+    "recipe[openldap::default]",
+    "recipe[db::default]",
+    "recipe[db::do_init_and_become_master]"
+  ]
+}

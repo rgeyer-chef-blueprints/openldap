@@ -9,3 +9,5 @@ Gemfile.lock
 .*.sw[a-z]
 *.un~
 /cookbooks
+runlists/*/default.json
+block_device

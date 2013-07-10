@@ -1,40 +1,65 @@
-rightscale_cookbooks_path = "~/Code/Chef/me/rightscale_cookbooks-1/cookbooks"
+site :opscode
 
-cookbook "openldap", path: "~/Code/Chef/me/rgeyer-rs-cookbooks/openldap"  #git: "https://github.com/rgeyer-rs-cookbooks/openldap.git"
-cookbook "rightscale_sandbox", git: "https://github.com/rgeyer-rs-cookbooks/rightscale_sandbox.git"
+cookbook "openldap",
+  path: "~/Code/Chef/me/rgeyer-rs-cookbooks/openldap"  #git: "https://github.com/rgeyer-rs-cookbooks/openldap.git"
+cookbook "rightscale_sandbox",
+  git: "https://github.com/rgeyer-rs-cookbooks/rightscale_sandbox.git"
 
-cookbook "block_device", path: "#{rightscale_cookbooks_path}/block_device"
-cookbook "logging", path: "#{rightscale_cookbooks_path}/logging"
-cookbook "logging_rsyslog", path: "#{rightscale_cookbooks_path}/logging_rsyslog"
-cookbook "logging_syslog_ng", path: "#{rightscale_cookbooks_path}/logging_syslog_ng"
-cookbook "rightscale", path: "#{rightscale_cookbooks_path}/rightscale"
-cookbook "sys", path: "#{rightscale_cookbooks_path}/sys"
-cookbook "sys_dns", path: "#{rightscale_cookbooks_path}/sys_dns"
-cookbook "sys_firewall", path: "#{rightscale_cookbooks_path}/sys_firewall"
-cookbook "sys_ntp", path: "#{rightscale_cookbooks_path}/sys_ntp"
+cookbook "db",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "openldap_db",
+  rel: "cookbooks/db"
+cookbook "db_mysql",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/db_mysql"
+cookbook "db_postgres",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/db_postgres"
+cookbook "block_device",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/block_device"
+cookbook "logging",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/logging"
+cookbook "logging_rsyslog",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/logging_rsyslog"
+cookbook "logging_syslog_ng",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/logging_syslog_ng"
+cookbook "rightscale",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/rightscale"
+cookbook "sys",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/sys"
+cookbook "sys_dns",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/sys_dns"
+cookbook "sys_firewall",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/sys_firewall"
+cookbook "sys_ntp",
+  git: "git://github.com/rgeyer/rightscale_cookbooks-1.git",
+  branch: "release_20121219",
+  rel: "cookbooks/sys_ntp"
 
 group :vagrant_only do
-  cookbook "rs_vagrant_shim", path: "~/Code/Chef/me/rgeyer-rs-cookbooks/rs_vagrant_shim" #git: "https://github.com/rgeyer-rs-cookbooks/rs_vagrant_shim.git"
+  cookbook "rs_vagrant_shim",
+    path: "~/Code/Chef/me/rgeyer-rs-cookbooks/rs_vagrant_shim/cookbooks/rs_vagrant_shim"
+    #git: "https://github.com/rgeyer-rs-cookbooks/rs_vagrant_shim.git",
+    #rel: "cookbooks/rs_vagrant_shim"
+  cookbook "resolver",
+    git: "git://github.com/flaccid/cookbooks.git",
+    rel: "cookbooks/resolver"
 end
-
-#cookbook "app", path: "#{rightscale_cookbooks_path}/app"
-#cookbook "app_django", path: "#{rightscale_cookbooks_path}/app_django"
-#cookbook "app_passenger", path: "#{rightscale_cookbooks_path}/app_passenger"
-#cookbook "app_php", path: "#{rightscale_cookbooks_path}/app_php"
-#cookbook "app_tomcat", path: "#{rightscale_cookbooks_path}/app_tomcat"
-#cookbook "db", path: "#{rightscale_cookbooks_path}/db"
-#cookbook "db_mysql", path: "#{rightscale_cookbooks_path}/db_mysql"
-#cookbook "db_postgres", path: "#{rightscale_cookbooks_path}/db_postgres"
-#cookbook "lamp", path: "#{rightscale_cookbooks_path}/lamp"
-#cookbook "lb", path: "#{rightscale_cookbooks_path}/lb"
-#cookbook "lb_clb", path: "#{rightscale_cookbooks_path}/lb_clb"
-#cookbook "lb_elb", path: "#{rightscale_cookbooks_path}/lb_elb"
-#cookbook "lb_haproxy", path: "#{rightscale_cookbooks_path}/lb_haproxy"
-#cookbook "memcached", path: "#{rightscale_cookbooks_path}/memcached"
-#cookbook "repo", path: "#{rightscale_cookbooks_path}/repo"
-#cookbook "repo_ftp", path: "#{rightscale_cookbooks_path}/repo_ftp"
-#cookbook "repo_git", path: "#{rightscale_cookbooks_path}/repo_git"
-#cookbook "repo_ros", path: "#{rightscale_cookbooks_path}/repo_ros"
-#cookbook "repo_rsync", path: "#{rightscale_cookbooks_path}/repo_rsync"
-#cookbook "repo_svn", path: "#{rightscale_cookbooks_path}/repo_svn"
-#cookbook "web_apache", path: "#{rightscale_cookbooks_path}/web_apache"

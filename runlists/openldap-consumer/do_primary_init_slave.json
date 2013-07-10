@@ -1,0 +1,6 @@
+{
+  "run_list": [
+    "recipe[rs_vagrant_shim]",
+    "recipe[db::do_primary_init_slave]"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "cloud": { "provider": "vagrant" },
+  "rightscale": { "instance_uuid": "uuid-producer" },
+  "sys": {
+    "swap_size": "0.5",
+    "swap_file": "/mnt/ephemeral/swapfile"
+  },
+  "sys_dns": {
+    "choice": "Route53",
+    "user": "username",
+    "password": "password",
+    "id": "id"
+  },
+  "block_device": {
+    "devices": {
+      "device1": {
+        "backup": {
+          "lineage": "backup_lineage"
+        }
+      },
+      "default": {
+        "backup": {
+          "primary": {
+            "cloud": "s3",
+            "cred": {
+              "user": "user",
+              "secret": "secret"
+            }
+          }
+        }
+      }
+    }
+  },
+  "openldap": {
+    "allow_remote": "true",
+    "config_admin_cn": "foobarbaz",
+    "config_admin_password": "password",
+    "database_admin_cn": "admin",
+    "database_admin_password": "password",
+    "replication_user_password": "password",
+    "base_dn": "dc=a,dc=com",
+    "dns": {
+      "producer": {
+        "id": "id"
+      }
+    }
+  },
+  "run_list": [
+    "recipe[rs_vagrant_shim]",
+    "recipe[resolver]",
+    "recipe[logging::default]",
+    "recipe[sys_firewall::default]",
+    "recipe[sys_ntp::default]",
+    "recipe[sys_dns::default]",
+    "recipe[rightscale::default]",
+    "recipe[rightscale::setup_timezone]",
+    "recipe[block_device::install_tools]",
+    "recipe[sys::setup_swap]",
+    "recipe[block_device::default]",
+    "recipe[openldap::default]",
+    "recipe[db::install_server]",
+    "recipe[db::setup_monitoring]"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "run_list": [
+    "recipe[db::do_primary_backup]"
+  ]
+}
